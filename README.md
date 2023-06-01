@@ -6,8 +6,9 @@ The app, runs a cron job every minute in the code and fetch's data from Github P
 ## How to run the akto-app
 1. Clone the project
 ```shell
-git clone 
+git clone git@github.com:Anish-Shobith/akto-app.git
 ```
+> Note: I use `ssh`, you can use `https` over `ssh`.
 
 2. Change Directory
 ```shell
@@ -23,9 +24,9 @@ yarn install
 ```
 DATABASE_URL="mongodb+srv://<username>:<password>@cluster0.ijkiuxr.mongodb.net/<dbname>?retryWrites=true&w=majority"
 ```
-Note : 
-    Replace `<username>` with your username.
-    Replace `<password>` with your password.
+Note : <br />
+    Replace `<username>` with your username. <br />
+    Replace `<password>` with your password. <br />
     And Finally replace `<dbname>` with your dbname, you can keep `akto-app`.
 
 I am using Mongodb Atlas, a Tutorial on setup of the Cluster can be found in [here](https://www.mongodb.com/basics/clusters/mongodb-cluster-setup).
