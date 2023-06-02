@@ -10,20 +10,20 @@ const FILE_PATH = "pattern.json";
 
 /**
  * Octokit is a library that makes it easy to work with the GitHub API.
- * It is used here to fetch the Gist content.
+ * It is used here to fetch the repo content.
  * https://octokit.github.io/rest.js/
  */
 const octokit = new Octokit();
 
 /**
  * Prisma is an ORM that makes it easy to work with databases.
- * It is used here to store the Gist or Github content in a database.
+ * It is used here to store the Github content in a database.
  * https://www.prisma.io/
  */
 const prisma = new PrismaClient();
 
 /**
- * The PiiData interface defines the shape of the data that is fetched from the Gist.
+ * The PiiData interface defines the shape of the data that is fetched from the repo.
  * The data is stored in the database using the Prisma ORM.
  * https://www.prisma.io/docs/concepts/components/prisma-client/crud
  */
@@ -40,7 +40,7 @@ interface PiiData {
 const logger = winston.createLogger({
   level: "info",
   format: winston.format.combine(
-    winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss A" }),
+    winston.format.timestamp({ format: "DD-MM-YYYY HH:mm:ss A" }),
     winston.format.printf(({ level, message, timestamp }) => {
       return `${level.toUpperCase()} ${timestamp}: ${message}`;
     })
@@ -132,7 +132,7 @@ const fetchDataFromRepo = async () => {
 };
 
 /**
- * This function fetches the Gist content and stores it in the database.
+ * This function fetches the repo content and stores it in the database.
  * This is an IIFE, and is made for testing purposes.
  */
 // (async () => {
